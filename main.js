@@ -50,7 +50,7 @@
       const last = acts[acts.length - 1];
       const end = last.offsetTop + last.offsetHeight;
       const mid = y + vh * 0.5;
-      rail.classList.toggle('visible', mid > first && mid < end + vh * 0.2);
+      rail.classList.toggle('visible', mid > first && mid < end);
       const p = Math.min(1, Math.max(0, (mid - first) / (end - first)));
       rail.style.setProperty('--rail', p.toFixed(4));
       acts.forEach((act, i) => {
