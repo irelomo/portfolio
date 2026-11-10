@@ -160,14 +160,17 @@ section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
 }
 .act-quote span {
   --neon: #FF5E57;
-  padding: .06em .3em; border-radius: .3em;
+  padding: 0 .15em;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
-  background-image: linear-gradient(transparent 52%, color-mix(in srgb, var(--neon) 68%, transparent) 52%, color-mix(in srgb, var(--neon) 68%, transparent) 92%, transparent 92%);
-  background-repeat: no-repeat; background-size: 0% 100%;
+  background-image:
+    linear-gradient(var(--neon), var(--neon)),
+    linear-gradient(color-mix(in srgb, var(--neon) 16%, transparent), color-mix(in srgb, var(--neon) 16%, transparent));
+  background-repeat: no-repeat;
+  background-position: 0 92%, 0 100%;
+  background-size: 0% 3px, 0% 45%;
   transition: background-size 1.2s var(--ease) .35s;
-  text-shadow: 0 0 18px rgba(255, 94, 87, .25);
 }
-.act-quote.in span { background-size: 100% 100%; }
+.act-quote.in span { background-size: 100% 3px, 100% 45%; }
 
 /* Act III: feature stories */
 .act-feature { border-top: 0; }
@@ -307,5 +310,5 @@ section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal, .hero-title .line > span { opacity: 1; transform: none; }
-  .act-quote span { background-size: 100% 100%; }
+  .act-quote span { background-size: 100% 3px, 100% 45%; }
 }
