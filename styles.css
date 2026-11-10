@@ -160,7 +160,7 @@ section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
 .chapter:hover { transform: translateY(-6px); box-shadow: 0 18px 40px -22px rgba(31, 27, 46, .35); border-color: var(--act-soft); }
 .chapter header { margin-bottom: 14px; }
 .when { font-size: 13px; font-weight: 600; color: var(--act-accent, var(--accent)); letter-spacing: .04em; }
-.chapter h3, .story h3 { font-family: var(--serif); font-size: 28px; letter-spacing: -.01em; margin: 6px 0 2px; }
+.chapter h3, .story h3 { font-family: "Comfortaa", var(--sans); font-weight: 700; font-size: 25px; line-height: 1.25; letter-spacing: -.01em; margin: 8px 0 4px; }
 .role { font-size: 14px; color: var(--ink-soft); }
 .chapter p { color: var(--ink-soft); font-size: 16px; }
 
