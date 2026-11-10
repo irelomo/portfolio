@@ -34,7 +34,7 @@
   const rail = document.querySelector('.act-rail');
   const railItems = rail ? [...rail.querySelectorAll('li')] : [];
   const acts = [...document.querySelectorAll('.act')];
-  const nums = [...document.querySelectorAll('.act-num')];
+  const nums = [...document.querySelectorAll('.act-svg')];
 
   let ticking = false;
   const update = () => {
@@ -61,8 +61,8 @@
 
     if (!reduceMotion) {
       nums.forEach((n) => {
-        const r = n.parentElement.getBoundingClientRect();
-        n.style.setProperty('--parallax', `${(r.top - vh / 2) * -0.15}px`);
+        const r = n.closest('.act-head').getBoundingClientRect();
+        n.style.setProperty('--parallax', `${(r.top - vh / 2) * -0.08}px`);
       });
     }
   };

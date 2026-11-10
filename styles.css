@@ -128,13 +128,24 @@ section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
 #act-3 { --act-bg: #E9EFF8; --act-accent: #3C4F9E; --act-soft: #CCD7EE; --act-kicker: #3C4F9E; --act-line: #D3DDEE; --act-turn: #F4F6FD; }
 .act .act-kicker { color: var(--act-kicker); }
 .act-head { position: relative; margin-bottom: clamp(48px, 7vw, 88px); }
-.act-num {
-  position: absolute; right: 0; top: -.25em; z-index: 0;
-  font-family: var(--serif); font-weight: 300;
-  font-size: clamp(140px, 24vw, 320px); line-height: 1; color: var(--act-soft);
-  transform: translateY(var(--parallax, 0px)); pointer-events: none; user-select: none;
+.act-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); column-gap: clamp(24px, 4vw, 56px); align-items: center; }
+.act-head > :not(.act-art) { grid-column: 1; }
+.act-art {
+  grid-column: 2; grid-row: 1 / span 3; align-self: center; position: relative; z-index: 0;
+  color: var(--act-accent); pointer-events: none;
 }
-.act-head > :not(.act-num) { position: relative; z-index: 1; }
+.act-art::before {
+  content: ""; position: absolute; inset: 6% 2%; border-radius: 50%; z-index: -1;
+  background: radial-gradient(circle, var(--act-soft) 0%, transparent 70%); opacity: .8;
+}
+.act-svg { display: block; width: 100%; height: auto; transform: translateY(var(--parallax, 0px)); opacity: .85; }
+.act-svg .art-fill { fill: var(--act-soft); }
+.act-svg .art-fill-soft { fill: color-mix(in srgb, var(--act-soft) 55%, transparent); }
+.act-svg .art-fill-white { fill: rgba(255, 255, 255, .75); }
+.art-pulse { animation: pulse 2.8s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+.art-walk { animation: walk 9s ease-in-out infinite alternate; }
+@keyframes walk { from { transform: translateX(-60px); } to { transform: translateX(60px); } }
 .act-title {
   font-family: var(--serif); font-weight: 400; letter-spacing: -.025em; line-height: 1;
   font-size: clamp(48px, 8vw, 104px); margin: 14px 0 22px;
@@ -288,6 +299,8 @@ section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
+  .act-head { grid-template-columns: 1fr; }
+  .act-art { grid-column: 1; grid-row: auto; order: -1; width: min(300px, 80%); margin-bottom: 8px; }
   .about-intro { grid-template-columns: 1fr; }
   .profile-card { max-width: 440px; }
   .story { grid-template-columns: 1fr; }
